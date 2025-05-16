@@ -1,17 +1,58 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      {{ lang }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="container">
+    <p>{{ currentIndex + 1 }}/{{ palabras.length }}</p>
+    <ion-card>
+      <ion-card-header style="color: white">
+        <ion-card-title>{{ currentWord?.word }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div *ngIf="showTranslation" style="color: white">
+          <p><strong>{{ currentWord?.translation }}</strong></p>
+        </div>
+
+        <ion-button style="margin-top: 10px" (click)="toggleTranslation()">
+          {{ showTranslation ? 'Ocultar' : 'Mostrar' }} traducción
+        </ion-button>
+        <ion-button (click)="toggleFavorite(currentWord)" class="btn-heart">
+          <ion-icon [name]="currentWord?.favorite ? 'heart-dislike' : 'heart'"></ion-icon>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="previousCard()" [disabled]="currentIndex === 0">
+            Anterior
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" (click)="nextCard()" [disabled]="currentIndex === palabras.length - 1">
+            Siguiente
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  <!-- Footer fijo con botones -->
+  <div class="footer-buttons">
+    <div>
+      <ion-button (click)="showAll()">Todas</ion-button>
+      <ion-button (click)="showHalf()">Mitad</ion-button>
+      <ion-button (click)="show30()">Las primeras 30</ion-button>
+      <ion-button (click)="show30Last()">Las últimas 30</ion-button>
+    </div>
+  </div>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
