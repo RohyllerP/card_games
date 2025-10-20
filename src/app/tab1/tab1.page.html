@@ -11,12 +11,12 @@
     <p>{{ currentIndex + 1 }}/{{ palabras.length }}</p>
     <ion-card>
       <ion-card-header style="color: white">
-        <ion-card-title>{{ currentWord?.word }}</ion-card-title>
+        <ion-card-title>{{ orderNormal ? currentWord?.word : currentWord?.translation }}</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
-        <div *ngIf="showTranslation" style="color: white">
-          <p><strong>{{ currentWord?.translation }}</strong></p>
+        <div *ngIf="showTranslation" style="color: #23e941">
+          <p><strong>{{ orderNormal ? currentWord?.translation : currentWord?.word }}</strong></p>
         </div>
 
         <ion-button style="margin-top: 10px" (click)="toggleTranslation()">
@@ -47,10 +47,10 @@
   <!-- Footer fijo con botones -->
   <div class="footer-buttons">
     <div>
-      <ion-button (click)="showAll()">Todas</ion-button>
-      <ion-button (click)="showHalf()">Mitad</ion-button>
-      <ion-button (click)="show30()">Las primeras 30</ion-button>
-      <ion-button (click)="show30Last()">Las últimas 30</ion-button>
+      <ion-button (click)="showAll()">All</ion-button>
+      <ion-button (click)="showHalf()">Half</ion-button>
+      <ion-button (click)="show30Last()">Show 30 Last</ion-button>
+      <ion-button (click)="changeLanguage()">Change Language</ion-button>
     </div>
   </div>
 
