@@ -14,7 +14,7 @@ export class Tab1Page implements OnInit {
   palabrasMitad: any[] = [];
   palabrasCopy: any[] = [];
   av: any[] = [];
-  languajeChange:boolean = true;
+  languajeChange: boolean = true;
   constructor(private palabrasService: PalabrasService) { }
 
   async ngOnInit() {
