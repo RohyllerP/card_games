@@ -14,7 +14,6 @@ export class Tab1Page implements OnInit {
   palabrasMitad: any[] = [];
   palabrasCopy: any[] = [];
   av: any[] = [];
-  orderNormal: boolean = true;
   constructor(private palabrasService: PalabrasService) { }
 
   async ngOnInit() {
@@ -28,6 +27,7 @@ export class Tab1Page implements OnInit {
         this.av = result;
         this.palabrasCopy = this.shuffleArray(this.av);
         this.palabras = [...this.palabrasCopy];
+        console.log(this.av);
       },
       error: (err) => {
         console.error('Error al recibir las palabras:', err);
@@ -91,8 +91,6 @@ export class Tab1Page implements OnInit {
   toggleFavorite(palavra: any) {
     palavra.favorite = !palavra.favorite;
     this.palabrasService.updatePalavra(palavra, false);
-  }
-  changeLanguage() {
-    this.orderNormal = !this.orderNormal;
+
   }
 }

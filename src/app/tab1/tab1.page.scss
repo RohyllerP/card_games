@@ -45,19 +45,17 @@
   margin: 0px;
 }
 
-.btn-heart {
+.btn-heart{
   position: relative;
   left: 20px;
   bottom: -3px;
 }
-
 ion-card ion-card-header ion-card-title {
   font-size: 30px;
 }
 
 @media screen and (max-width: 470px) {
-  #container {
-    top: 25%;
-    transform: translateY(25%);
-  }
+
+
+
 }

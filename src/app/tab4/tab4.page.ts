@@ -16,6 +16,7 @@ export class Tab4Page implements OnInit {
   }
   
 ionViewWillEnter() {
+    // Se ejecuta cada vez que el usuario entra a Tab4
     const sub = this.palabrasService.palabras$.subscribe({
       next: (data) => {
         this.palabras = data.filter(p => p.favorite);
@@ -25,12 +26,14 @@ ionViewWillEnter() {
       }
     });
 
+    // Cancelamos la suscripción después de un breve tiempo para evitar fugas
     setTimeout(() => sub.unsubscribe(), 100);
   }
 
   toggleFavorite(palavra: any) {
     palavra.favorite = !palavra.favorite;
     this.palabrasService.updatePalavra(palavra, false);
+    // Actualizamos la lista localmente para ocultar si se desmarca
     this.palabras = this.palabras.filter(p => p.favorite);
   }
   
