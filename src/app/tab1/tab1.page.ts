@@ -94,6 +94,6 @@ export class Tab1Page implements OnInit {
     this.palabrasService.updatePalavra(palavra, false);
   }
   changeLanguage(){
-    languajeChange = !languajeChange;
+    this.languajeChange = !this.languajeChange;
   }
 }
