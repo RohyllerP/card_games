@@ -14,6 +14,7 @@ export class Tab1Page implements OnInit {
   palabrasMitad: any[] = [];
   palabrasCopy: any[] = [];
   av: any[] = [];
+  languajeChange:boolean = true;
   constructor(private palabrasService: PalabrasService) { }
 
   async ngOnInit() {
@@ -91,6 +92,8 @@ export class Tab1Page implements OnInit {
   toggleFavorite(palavra: any) {
     palavra.favorite = !palavra.favorite;
     this.palabrasService.updatePalavra(palavra, false);
-
+  }
+  changeLanguage(){
+    languajeChange = !languajeChange;
   }
 }
