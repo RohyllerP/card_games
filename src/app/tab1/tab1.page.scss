@@ -55,7 +55,8 @@ ion-card ion-card-header ion-card-title {
 }
 
 @media screen and (max-width: 470px) {
-
-
-
+  #container{
+    top: 25%;
+    transform: translateX(25%);
+  }
 }
