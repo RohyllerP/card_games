@@ -16,7 +16,7 @@
 
       <ion-card-content>
         <div *ngIf="showTranslation" style="color: white">
-          <p><strong>{{ languajeChange ? currentWord?.translation : currentWord?.word }}</strong></p>
+          <p><strong style="color: #04c901">{{ languajeChange ? currentWord?.translation : currentWord?.word }}</strong></p>
         </div>
 
         <ion-button style="margin-top: 10px" (click)="toggleTranslation()">
@@ -49,7 +49,8 @@
     <div>
       <ion-button (click)="showAll()">All</ion-button>
       <ion-button (click)="showHalf()">Half</ion-button>
-      <ion-button (click)="show30Last()">Las últimas 30</ion-button>
+      <ion-button (click)="showHalfLast()">Last half</ion-button>
+      <ion-button (click)="show30Last()">Last 30</ion-button>
       <ion-button (click)="changeLanguage()">Languaje</ion-button>
     </div>
   </div>

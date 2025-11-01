@@ -96,4 +96,9 @@ export class Tab1Page implements OnInit {
   changeLanguage(){
     this.languajeChange = !this.languajeChange;
   }
+  showHalfLast() {
+    const mitad = Math.ceil(this.palabrasCopy.length / 2);
+    this.palabras = this.palabrasCopy.slice(mitad);
+    this.currentIndex = 0;
+  }
 }
